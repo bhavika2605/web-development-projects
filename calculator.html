@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Calculator</title>
+
+<style>
+
+body{
+font-family: Arial;
+background:#e9ecef;
+text-align:center;
+}
+
+h1{
+margin-top:30px;
+}
+
+.container{
+background:#3c4a55;
+width:320px;
+margin:40px auto;
+padding:25px;
+border-radius:20px;
+box-shadow:0px 10px 20px rgba(0,0,0,0.3);
+}
+#display{
+width:100%;
+height:50px;
+font-size:22px;
+margin-bottom:15px;
+text-align:right;
+padding-right:10px;
+border:none;
+border-radius:6px;
+color:#00ffcc;   
+font-weight:bold;
+}
+
+.buttons{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:12px;
+}
+
+button{
+height:55px;
+font-size:18px;
+border:none;
+border-radius:10px;
+background:#dfe6e9;
+cursor:pointer;
+}
+
+button:hover{
+background:#b2bec3;
+}
+
+.operator{
+background:#74b9ff;
+}
+
+.equal{
+background:#55efc4;
+}
+
+.clear{
+background:#ff7675;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>Calculator</h1>
+
+<div class="container">
+
+<input type="text" id="display" disabled>
+
+<div class="buttons">
+
+<button onclick="append('(')">(</button>
+<button onclick="append(')')">)</button>
+<button class="clear" onclick="clearDisplay()">Clr</button>
+<button onclick="append('%')">%</button>
+
+<button onclick="append('7')">7</button>
+<button onclick="append('8')">8</button>
+<button onclick="append('9')">9</button>
+<button class="operator" onclick="append('*')">*</button>
+
+<button onclick="append('4')">4</button>
+<button onclick="append('5')">5</button>
+<button onclick="append('6')">6</button>
+<button class="operator" onclick="append('-')">-</button>
+
+<button onclick="append('1')">1</button>
+<button onclick="append('2')">2</button>
+<button onclick="append('3')">3</button>
+<button class="operator" onclick="append('+')">+</button>
+
+<button onclick="append('0')">0</button>
+<button onclick="append('.')">.</button>
+<button class="operator" onclick="append('/')">/</button>
+<button class="equal" onclick="calculate()">=</button>
+
+</div>
+
+</div>
+
+<script>
+
+function append(value){
+document.getElementById("display").value += value;
+}
+
+function clearDisplay(){
+document.getElementById("display").value="";
+}
+
+function calculate(){
+let exp=document.getElementById("display").value;
+document.getElementById("display").value=eval(exp);
+}
+
+</script>
+
+</body>
+</html>
